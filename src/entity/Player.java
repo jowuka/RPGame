@@ -22,13 +22,13 @@ public class Player extends entity {
 	}
 
 	public void setDefaultValues() {
-		x = 100;
-		y = 100;
-		speed = 4;
+		worldX = 100;
+		worldY = 100;
+		speed = 3;
 		direction = "idledown";
 	}
 
-	public void getPlayerImage() {
+	public void getPlayerImage() {					// all images of player
 		try {
 			up1 = ImageIO.read(getClass().getResourceAsStream("/player_up_walk/_up walk.png"));
 			up2 = ImageIO.read(getClass().getResourceAsStream("/player_up_walk/_up walk1.png"));
@@ -89,17 +89,17 @@ public class Player extends entity {
 	public void update() {
 		if (keyH.upPressed == true) {
 			direction = "up";
-			y -= speed;
+			worldY -= speed;
 		} 
 		else if (keyH.downPressed == true) {
 			direction = "down";
-			y += speed;
+			worldY += speed;
 		} else if (keyH.leftPressed == true) {
 			direction = "left";
-			x -= speed;
+			worldX -= speed;
 		} else if (keyH.rightPressed == true) {
 			direction = "right";
-			x += speed;
+			worldX += speed;
 		} 
 		
 		if (keyH.upPressed == true || keyH.leftPressed == true || keyH.rightPressed == true
@@ -267,7 +267,7 @@ public class Player extends entity {
 				image = idleright5;
 			break;
 		}
-		g2.drawImage(image, x, y, gp.tileSize * 2, gp.tileSize * 2, null);
+		g2.drawImage(image, worldX, worldY, gp.tileSize, gp.tileSize, null);
 
 	}
 }

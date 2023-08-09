@@ -6,7 +6,7 @@ import entity.Player;
 import tile.TileManager;
 public class GamePanel extends JPanel implements Runnable{
 	final int originalTileSize = 16;						
-	final int scale = 4;									// Cube Size tileSize * scale
+	final int scale = 5;									// Cube Size tileSize * scale
 	public final int tileSize = originalTileSize * scale;			// tileSize = 16 * scale
 	public final int maxScreenCol = 16;							// Col Cube's
 	public final int maxScreenRow = 12;							// Row Cube's
