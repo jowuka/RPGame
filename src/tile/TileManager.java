@@ -16,7 +16,7 @@ public class TileManager {
 	String FirstMap = "/map/map.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
-		tile = new Tile[10];
+		tile = new Tile[21];
 		mapTileNum = new int[gp.maxWorldcol][gp.maxWorldrow];
 		getTileImage();
 		loadMap(FirstMap);
@@ -24,7 +24,7 @@ public class TileManager {
 	public void getTileImage() {		// Tile Images Each Index of Array Contains a Picture!!!
 		try {
 			tile[0] = new Tile();
-			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/32greengrass.png"));
+			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0181.png"));
 			
 			tile[1] = new Tile();
 			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0182.png"));
@@ -44,7 +44,52 @@ public class TileManager {
 			tile[6] = new Tile();
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0003.png"));
 			
+			tile[7] = new Tile();
+			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0024.png"));
 			
+			tile[8] = new Tile();
+			tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0025.png"));
+			
+			tile[9] = new Tile();
+			tile[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0026.png"));
+			
+			tile[10] = new Tile();
+			tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0027.png"));
+			
+			tile[11] = new Tile();
+			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0028.png"));
+			
+			tile[12] = new Tile();
+			tile[12].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0029.png"));
+
+			tile[13] = new Tile();
+			tile[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Grass98x98.png"));
+
+
+			tile[14] = new Tile();
+			tile[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/bed.png"));
+
+			tile[15] = new Tile();
+			tile[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/CasaUp.png"));
+
+
+			tile[16] = new Tile();
+			tile[16].image = ImageIO.read(getClass().getResourceAsStream("/tiles/houseDown.png"));
+
+			tile[17] = new Tile();
+			tile[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/UpLeft.png"));
+
+
+			tile[18] = new Tile();
+			tile[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/UpRight.png"));
+
+			tile[19] = new Tile();
+			tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DownRight.png"));
+
+
+			tile[20] = new Tile();
+			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DownLeft.png"));
+
 		} catch (Exception e) {
 			
 		}
@@ -81,7 +126,6 @@ public class TileManager {
 	public void draw(Graphics g2) {
 		int worldCol = 0;
 		int worldRow = 0;
-
 		while (worldCol < gp.maxWorldcol && worldRow < gp.maxWorldrow) {
 			
 			int tileNum = mapTileNum[worldCol][worldRow];
@@ -94,11 +138,24 @@ public class TileManager {
 					worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
 					worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
 					worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
+				if(tileNum == 0)
+					if (worldCol % 2 == 0) 
+						if(worldRow % 2 == 0)
+						g2.drawImage(tile[0].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+						else 
+							g2.drawImage(tile[1].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+					else 
+						if(worldRow % 2 == 0)
+							g2.drawImage(tile[2].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+						else 
+							g2.drawImage(tile[3].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+				else {
 					g2.drawImage(tile[0].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-				if (tileNum != 0)
 					g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+				}
+				
 			}
-				worldCol++;
+			worldCol++;
 			
 			if(worldCol == gp.maxWorldcol) {
 				worldCol = 0;
