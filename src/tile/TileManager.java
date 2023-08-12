@@ -42,13 +42,8 @@ public class TileManager {
 			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration2.png"));
 			
 			tile[6] = new Tile();
-<<<<<<< Updated upstream
-			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0003.png"));
-			/*
-=======
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration3.png"));
 			
->>>>>>> Stashed changes
 			tile[7] = new Tile();
 			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration4.png"));
 
@@ -62,43 +57,9 @@ public class TileManager {
 			tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration7.png"));
 			
 			tile[11] = new Tile();
-<<<<<<< Updated upstream
-			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0028.png"));
-			
-			tile[12] = new Tile();
-			tile[12].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0029.png"));
-
-			tile[13] = new Tile();
-			tile[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Grass98x98.png"));
-
-*/
-			//tile[14] = new Tile();
-			//tile[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/bed.png"));
-
-			//tile[15] = new Tile();
-			//tile[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/CasaUp.png"));
-
-
-			//tile[16] = new Tile();
-			//tile[16].image = ImageIO.read(getClass().getResourceAsStream("/tiles/houseDown.png"));
-
-			tile[17] = new Tile();
-			tile[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3026.png"));
-
-
-			tile[18] = new Tile();
-			tile[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3027.png"));
-
-			tile[19] = new Tile();
-			tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3039.png"));
-
-
-			tile[20] = new Tile();
-			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3040.png"));
-
-=======
 			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration8.png"));
->>>>>>> Stashed changes
+			
+			
 		} catch (Exception e) {
 			
 		}
