@@ -16,7 +16,7 @@ public class TileManager {
 	String FirstMap = "/map/map.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
-		tile = new Tile[21];
+		tile = new Tile[40];
 		mapTileNum = new int[gp.maxWorldcol][gp.maxWorldrow];
 		getTileImage();
 		loadMap(FirstMap);
@@ -24,39 +24,45 @@ public class TileManager {
 	public void getTileImage() {		// Tile Images Each Index of Array Contains a Picture!!!
 		try {
 			tile[0] = new Tile();
-			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0181.png"));
+			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Ground/GreenGround1.png"));
 			
 			tile[1] = new Tile();
-			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0182.png"));
+			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Ground/GreenGround2.png"));
 			
 			tile[2] = new Tile();
-			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0183.png"));
+			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Ground/GreenGround3.png"));
 			
 			tile[3] = new Tile();
-			tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0184.png"));
+			tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Ground/GreenGround4.png"));
 			
 			tile[4] = new Tile();
-			tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0001.png"));
+			tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration1.png"));
 			
 			tile[5] = new Tile();
-			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0002.png"));
+			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration2.png"));
 			
 			tile[6] = new Tile();
+<<<<<<< Updated upstream
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0003.png"));
 			/*
-			tile[7] = new Tile();
-			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0024.png"));
+=======
+			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration3.png"));
 			
+>>>>>>> Stashed changes
+			tile[7] = new Tile();
+			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration4.png"));
+
 			tile[8] = new Tile();
-			tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0025.png"));
+			tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration5.png"));
 			
 			tile[9] = new Tile();
-			tile[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0026.png"));
+			tile[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration6.png"));
 			
 			tile[10] = new Tile();
-			tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0027.png"));
+			tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration7.png"));
 			
 			tile[11] = new Tile();
+<<<<<<< Updated upstream
 			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0028.png"));
 			
 			tile[12] = new Tile();
@@ -90,6 +96,9 @@ public class TileManager {
 			tile[20] = new Tile();
 			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3040.png"));
 
+=======
+			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration8.png"));
+>>>>>>> Stashed changes
 		} catch (Exception e) {
 			
 		}
