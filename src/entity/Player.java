@@ -2,6 +2,7 @@ package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
@@ -15,14 +16,20 @@ public class Player extends entity {
 	KeyHandler keyH;
 	public final int screenX;
 	public final int screenY;
+
 	public Player(GamePanel gp, KeyHandler keyH) {
 		this.gp = gp;
 		this.keyH = keyH;
 		screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
 		screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
+		solidArea = new Rectangle();
+		solidArea.x = 8;
+		solidArea.y = 16;
+		solidArea.width = 32;
+		solidArea.height = 32;
 		setDefaultValues();
 		getPlayerImage();
-		
+
 	}
 
 	public void setDefaultValues() {
@@ -32,7 +39,7 @@ public class Player extends entity {
 		direction = "idledown";
 	}
 
-	public void getPlayerImage() {					// all images of player
+	public void getPlayerImage() { // all images of player
 		try {
 			up1 = ImageIO.read(getClass().getResourceAsStream("/player_up_walk/_up walk.png"));
 			up2 = ImageIO.read(getClass().getResourceAsStream("/player_up_walk/_up walk1.png"));
@@ -61,25 +68,25 @@ public class Player extends entity {
 			right4 = ImageIO.read(getClass().getResourceAsStream("/player_right_walk/Rside_walk3.png"));
 			right5 = ImageIO.read(getClass().getResourceAsStream("/player_right_walk/Rside_walk4.png"));
 			right6 = ImageIO.read(getClass().getResourceAsStream("/player_right_walk/Rside_walk5.png"));
-			
+
 			idleup1 = ImageIO.read(getClass().getResourceAsStream("/player_up_idle/up_idle.png"));
 			idleup2 = ImageIO.read(getClass().getResourceAsStream("/player_up_idle/up_idle1.png"));
 			idleup3 = ImageIO.read(getClass().getResourceAsStream("/player_up_idle/up_idle2.png"));
 			idleup4 = ImageIO.read(getClass().getResourceAsStream("/player_up_idle/up_idle3.png"));
 			idleup5 = ImageIO.read(getClass().getResourceAsStream("/player_up_idle/up_idle4.png"));
-			
+
 			idleleft1 = ImageIO.read(getClass().getResourceAsStream("/player_left_idle/_side idle.png"));
 			idleleft2 = ImageIO.read(getClass().getResourceAsStream("/player_left_idle/_side idle1.png"));
 			idleleft3 = ImageIO.read(getClass().getResourceAsStream("/player_left_idle/_side idle2.png"));
 			idleleft4 = ImageIO.read(getClass().getResourceAsStream("/player_left_idle/_side idle4.png"));
 			idleleft5 = ImageIO.read(getClass().getResourceAsStream("/player_left_idle/_side idle5.png"));
-			
+
 			idleright1 = ImageIO.read(getClass().getResourceAsStream("/player_right_idle/right idle.png"));
 			idleright2 = ImageIO.read(getClass().getResourceAsStream("/player_right_idle/right idle1.png"));
 			idleright3 = ImageIO.read(getClass().getResourceAsStream("/player_right_idle/right idle3.png"));
 			idleright4 = ImageIO.read(getClass().getResourceAsStream("/player_right_idle/right idle4.png"));
 			idleright5 = ImageIO.read(getClass().getResourceAsStream("/player_right_idle/right idle5.png"));
-			
+
 			idledown1 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle.png"));
 			idledown2 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle1.png"));
 			idledown3 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle2.png"));
@@ -93,23 +100,41 @@ public class Player extends entity {
 	public void update() {
 		if (keyH.upPressed == true) {
 			direction = "up";
-			worldY -= speed;
-		} 
-		else if (keyH.downPressed == true) {
+
+		} else if (keyH.downPressed == true) {
 			direction = "down";
-			worldY += speed;
+
 		} else if (keyH.leftPressed == true) {
 			direction = "left";
-			worldX -= speed;
 		} else if (keyH.rightPressed == true) {
 			direction = "right";
-			worldX += speed;
-		} 
-		
+
+		}
+		// CHECK TILE COLLISION
+		collisionOn = false;
+		gp.cChecker.checkTile(this);
+
+		if (collisionOn == false) {
+			switch (direction) {
+			case "up":
+				worldY -= speed;
+				break;
+			case "down":
+				worldY += speed;
+				break;
+			case "left":
+				worldX -= speed;
+				break;
+			case "right":
+				worldX += speed;
+				break;
+			}
+		}
+
 		if (keyH.upPressed == true || keyH.leftPressed == true || keyH.rightPressed == true
 				|| keyH.downPressed == true) {
 			spriteCounter++;
-			if (spriteCounter > 6) {					 // how many frames image changes!
+			if (spriteCounter > 6) { // how many frames image changes!
 				if (spriteNum == 1) {
 					spriteNum = 2;
 				} else if (spriteNum == 2) {
@@ -127,22 +152,19 @@ public class Player extends entity {
 				spriteCounter = 0;
 			}
 		}
-		
+
 		else {
 			if (keyH.idleDirection == 1) {
 				direction = "idleup";
-			}
-			else if (keyH.idleDirection == 2) {
+			} else if (keyH.idleDirection == 2) {
 				direction = "idledown";
-			}
-			else if (keyH.idleDirection == 3) {
+			} else if (keyH.idleDirection == 3) {
 				direction = "idleleft";
-			}
-			else if (keyH.idleDirection == 4) {
+			} else if (keyH.idleDirection == 4) {
 				direction = "idleright";
 			}
 			spriteCounter++;
-			if (spriteCounter > 12) {					 // how many frames image changes!
+			if (spriteCounter > 12) { // how many frames image changes!
 				if (spriteNumIdle == 1) {
 					spriteNumIdle = 2;
 				} else if (spriteNumIdle == 2) {
@@ -153,14 +175,13 @@ public class Player extends entity {
 					spriteNumIdle = 5;
 				} else if (spriteNumIdle == 5) {
 					spriteNumIdle = 1;
-					
+
 				}
-			spriteCounter = 0;
+				spriteCounter = 0;
 			}
 		}
-		
+
 	}
-	
 
 	public void draw(Graphics2D g2) {
 
@@ -271,7 +292,7 @@ public class Player extends entity {
 				image = idleright5;
 			break;
 		}
-		g2.drawImage(image, screenX, screenY, gp.tileSize * 2, gp.tileSize * 2, null);
+		g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 
 	}
 }

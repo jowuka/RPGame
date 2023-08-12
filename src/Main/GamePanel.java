@@ -5,8 +5,8 @@ import javax.swing.*;
 import entity.Player;
 import tile.TileManager;
 public class GamePanel extends JPanel implements Runnable{
-	final int originalTileSize = 16;						
-	final int scale = 5;									// Cube Size tileSize * scale
+	final int originalTileSize = 32;						
+	final int scale = 3;									// Cube Size tileSize * scale
 	public final int tileSize = originalTileSize * scale;			// tileSize = 16 * scale
 	public final int maxScreenCol = 16;							// Col Cube's
 	public final int maxScreenRow = 12;							// Row Cube's
@@ -22,7 +22,10 @@ public class GamePanel extends JPanel implements Runnable{
 	TileManager tileM = new TileManager(this);
 	Thread gameThread;
 	KeyHandler keyH = new KeyHandler();						//Reading Key Stroke's
+	public CollisionChecker cChecker = new CollisionChecker(this);
 	public Player player = new Player(this,keyH);
+
+	
 	
 	int fps = 60; 											// FPS SETTING
 	public GamePanel () {

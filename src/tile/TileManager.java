@@ -11,8 +11,8 @@ import Main.GamePanel;
 
 public class TileManager {
 	GamePanel gp;
-	Tile[] tile;
-	int mapTileNum[][];
+	public Tile[] tile;
+	public int mapTileNum[][];
 	String FirstMap = "/map/map.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
@@ -36,22 +36,28 @@ public class TileManager {
 			tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Ground/GreenGround4.png"));
 			
 			tile[4] = new Tile();
-			tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration1.png"));
+			tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/casa.png"));
+			tile[4].collision = true;
 			
 			tile[5] = new Tile();
 			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration2.png"));
+			tile[5].collision = true;
 			
 			tile[6] = new Tile();
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration3.png"));
+			tile[6].collision = true;
 			
 			tile[7] = new Tile();
 			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration4.png"));
+			tile[7].collision = true;
 
 			tile[8] = new Tile();
 			tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration5.png"));
+			tile[8].collision = true;
 			
 			tile[9] = new Tile();
 			tile[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration6.png"));
+			tile[9].collision = true;
 			
 			tile[10] = new Tile();
 			tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GreenCave/Decoration/GreenDecoration7.png"));
