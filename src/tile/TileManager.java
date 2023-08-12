@@ -43,7 +43,7 @@ public class TileManager {
 			
 			tile[6] = new Tile();
 			tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0003.png"));
-			
+			/*
 			tile[7] = new Tile();
 			tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_0024.png"));
 			
@@ -65,30 +65,30 @@ public class TileManager {
 			tile[13] = new Tile();
 			tile[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Grass98x98.png"));
 
+*/
+			//tile[14] = new Tile();
+			//tile[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/bed.png"));
 
-			tile[14] = new Tile();
-			tile[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/bed.png"));
-
-			tile[15] = new Tile();
-			tile[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/CasaUp.png"));
+			//tile[15] = new Tile();
+			//tile[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/CasaUp.png"));
 
 
-			tile[16] = new Tile();
-			tile[16].image = ImageIO.read(getClass().getResourceAsStream("/tiles/houseDown.png"));
+			//tile[16] = new Tile();
+			//tile[16].image = ImageIO.read(getClass().getResourceAsStream("/tiles/houseDown.png"));
 
 			tile[17] = new Tile();
-			tile[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/UpLeft.png"));
+			tile[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3026.png"));
 
 
 			tile[18] = new Tile();
-			tile[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/UpRight.png"));
+			tile[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3027.png"));
 
 			tile[19] = new Tile();
-			tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DownRight.png"));
+			tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3039.png"));
 
 
 			tile[20] = new Tile();
-			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/DownLeft.png"));
+			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sprite_3040.png"));
 
 		} catch (Exception e) {
 			
