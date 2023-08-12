@@ -271,7 +271,7 @@ public class Player extends entity {
 				image = idleright5;
 			break;
 		}
-		g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+		g2.drawImage(image, screenX, screenY, gp.tileSize * 2, gp.tileSize * 2, null);
 
 	}
 }
