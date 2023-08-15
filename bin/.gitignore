@@ -1,5 +1,13 @@
-/map/
-/entity/
-/tile/
 /Main/
+/entity/
+/map/
+/player_down_walk/
+/player_idle/
+/player_left_idle/
+/player_left_walk/
+/player_right_idle/
+/player_right_walk/
+/player_up_idle/
+/player_up_walk/
+/tile/
 /tiles/
