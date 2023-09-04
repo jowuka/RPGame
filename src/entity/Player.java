@@ -23,10 +23,10 @@ public class Player extends entity {
 		screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
 		screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 		solidArea = new Rectangle();
-		solidArea.x = 8;
+		solidArea.x = 16;
 		solidArea.y = 16;
-		solidArea.width = 32;
-		solidArea.height = 32;
+		solidArea.width = 16;
+		solidArea.height = 16;
 		setDefaultValues();
 		getPlayerImage();
 
@@ -92,6 +92,7 @@ public class Player extends entity {
 			idledown3 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle2.png"));
 			idledown4 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle3.png"));
 			idledown5 = ImageIO.read(getClass().getResourceAsStream("/player_idle/_down idle4.png"));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -106,6 +107,7 @@ public class Player extends entity {
 
 		} else if (keyH.leftPressed == true) {
 			direction = "left";
+			
 		} else if (keyH.rightPressed == true) {
 			direction = "right";
 

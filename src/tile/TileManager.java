@@ -16,7 +16,7 @@ public class TileManager {
 	String FirstMap = "/map/map.txt";
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
-		tile = new Tile[40];
+		tile = new Tile[200];
 		mapTileNum = new int[gp.maxWorldcol][gp.maxWorldrow];
 		getTileImage();
 		loadMap(FirstMap);
